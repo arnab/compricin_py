@@ -25,3 +25,12 @@ class AggregatorViewsTest(TestCase):
         """
         response = self.client.get(reverse('aggregator:search'), {'q': ''})
         self.assertContains(response, "Please enter something to search for")
+
+    def test_search_should_only_accept_safe_methods(self):
+        """
+        Everything except GET/HEAD should be rejected
+        """
+        search_url = reverse('aggregator:search')
+        for method in ['post', 'put', 'delete']:
+            response = getattr(self.client, method)(search_url)
+            self.assertEqual(response.status_code, 405)
