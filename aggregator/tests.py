@@ -7,10 +7,12 @@ Replace this with more appropriate tests for your application.
 
 from django.test import TestCase
 
+from django.core.urlresolvers import reverse
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
+class AggregatorViewsTest(TestCase):
+    def test_search_view_renders(self):
         """
-        Tests that 1 + 1 always equals 2.
+        Can successfully get to the (main) entry-point view
         """
-        self.assertEqual(1 + 1, 2)
+        response = self.client.get(reverse('aggregator:start'))
+        self.assertEqual(response.status_code, 200)
