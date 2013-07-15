@@ -19,8 +19,9 @@ class AggregatorViewsTest(TestCase):
         self.assertContains(response, "Search for")
         self.assertContains(response, "In these stores")
 
-    def test_search_with_empty_query_string(self):
+    def test_validate_empty_query_string(self):
         """
-        Empty search should return a validation error
+        If the query string is empty, a validation error should be shown
         """
-        response = self.client.post(reverse('aggregator:search'))
+        response = self.client.get(reverse('aggregator:search'), {'q': ''})
+        self.assertContains(response, "Please enter something to search for")
