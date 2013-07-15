@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load bootstrap_toolkit %}
+{% load url from future %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Compare prices across sites</title>
+    <meta name="description" content="compare prices across sites">
+    <meta name="author" content="Arnab Deka">
+    {% bootstrap_stylesheet_tag %}
+    {% bootstrap_stylesheet_tag "responsive" %}
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    {% bootstrap_javascript_tag %}
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="{% url 'aggregator:start' %}">comprice.in</a>
+            <ul class="nav">
+                <li><a href="{% url 'aggregator:start' %}" class="">Search</a></li>
+                <li><a href="{% url 'aggregator:start' %}" class="">About</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Me<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'aggregator:start' %}" class="">Account</a></li>
+                        <li><a href="{% url 'aggregator:start' %}" class="">Trends</a></li>
+                        <li><a href="{% url 'aggregator:start' %}" class="">Notifications</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    {% bootstrap_messages %}
+
+    {% block content %}Empty page{% endblock %}
+
+    <p><hr></p>
+
+    <footer class="row">
+        <div class="span6">
+            <p>source in <a href="https://github.com/arnab/compricin_py">github</a></p>
+        </div>
+        <div class="span6" style="text-align:right">
+            <p>
+                &copy; <a href="http://twitter.com/arnab_deka">Arnab Deka</a> 2013
+            </p>
+        </div>
+    </footer>
+
+</div> <!-- container -->
+
+</body>
+</html>
