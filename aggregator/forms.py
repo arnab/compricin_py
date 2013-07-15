@@ -1,17 +1,18 @@
 from django import forms
 
-class PriceSearchForm(forms.Form):
-    STORES = [ 'flipkart', 'amazon.in', 'ebay.in', 'infibeam']
+from aggregator.engines.store_config import StoreConfig
 
+class PriceSearchForm(forms.Form):
     q = forms.CharField(
         label='Search for',
         error_messages={'required': 'Please enter something to search for.'}
     )
 
-    store_choices = [ [store, store] for store in STORES ]
+    stores = StoreConfig.stores()
+    store_choices = [ [store, store] for store in stores ]
     stores = forms.MultipleChoiceField(
         choices=store_choices,
         widget = forms.widgets.CheckboxSelectMultiple,
-        initial = STORES,
+        initial = stores,
         label='In these stores'
     )
