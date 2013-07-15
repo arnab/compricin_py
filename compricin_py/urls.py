@@ -6,7 +6,7 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^prices/', include('aggregator.urls', namespace='aggregator')),
+    url(r'^search/', include('aggregator.urls', namespace='aggregator')),
     # url(r'^$', 'compricin_py.views.home', name='home'),
     # url(r'^compricin_py/', include('compricin_py.foo.urls')),
 
