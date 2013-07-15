@@ -2,6 +2,6 @@ from django.shortcuts import render
 
 from aggregator import forms
 
-def start(request):
+def search(request):
     form = forms.PriceSearchForm()
-    return render(request, 'aggregator/start.html', { 'form': form })
+    return render(request, 'aggregator/search.html', { 'form': form })

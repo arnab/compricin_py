@@ -14,7 +14,13 @@ class AggregatorViewsTest(TestCase):
         """
         Can successfully get to the (main) entry-point view
         """
-        response = self.client.get(reverse('aggregator:start'))
+        response = self.client.get(reverse('aggregator:search'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Search for")
         self.assertContains(response, "In these stores")
+
+    def test_search_with_empty_query_string(self):
+        """
+        Empty search should return a validation error
+        """
+        response = self.client.post(reverse('aggregator:search'))
