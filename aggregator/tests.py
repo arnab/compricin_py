@@ -16,3 +16,5 @@ class AggregatorViewsTest(TestCase):
         """
         response = self.client.get(reverse('aggregator:start'))
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Search for")
+        self.assertContains(response, "In these stores")
