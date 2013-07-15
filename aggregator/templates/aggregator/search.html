@@ -2,8 +2,7 @@
 {% load bootstrap_toolkit %}
 {% block content %}
 
-<form action='{% url 'aggregator:search' %}' method='post' class='form form-search'>
-    {% csrf_token %}
+<form action='{% url 'aggregator:search' %}' class='form form-search'>
     {{ form.non_field_errors }}
 
     {{ form|as_bootstrap }}
