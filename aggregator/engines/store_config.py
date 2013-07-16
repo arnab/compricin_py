@@ -2,9 +2,9 @@ class StoreConfig(object):
     CONFIG = {
         'flipkart': {
             'search_url': "http://www.flipkart.com/search/a/all?query=%s",
-            'item_css_path': ".fk-product-thumb",
-            'title_css_path': "a.fk-anchor-link",
-            'price_css_path': ".fk-price .price",
+            'item_css_path': ".browse-product",
+            'title_css_path': "a.fk-display-block",
+            'price_css_path': ".pu-price .pu-final",
             'max_items': 5,
         },
         'junglee': {
@@ -23,7 +23,7 @@ class StoreConfig(object):
             'search_url': "http://www.infibeam.com/search?q=%s",
             'item_css_path': "#search_result li",
             'title_css_path': ".title",
-            'price_css_path': ".price .price",
+            'price_css_path': ".price .normal",
         },
     }
 
