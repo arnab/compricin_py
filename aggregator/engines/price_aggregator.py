@@ -1,3 +1,6 @@
+from aggregator.engines.store_config import StoreConfig
+from aggregator.engines.scraper import Scraper
+
 class PriceAggregator(object):
     """finds prices of given items acorss sites"""
     def __init__(self, search_term, stores):
@@ -6,4 +9,5 @@ class PriceAggregator(object):
         self.stores = stores
 
     def aggregated_prices(self):
-        raise NotImplementedError("TODO")
+        for store in StoreConfig.stores():
+            search_results_page = Scraper().scrape(store, self.search_term)

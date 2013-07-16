@@ -30,3 +30,11 @@ class StoreConfig(object):
     @classmethod
     def stores(self):
         return StoreConfig.CONFIG.keys()
+
+    @classmethod
+    def info(self, store):
+        return StoreConfig.CONFIG[store]
+
+    @classmethod
+    def search_url(self, store):
+        return self.info(store)['search_url']
