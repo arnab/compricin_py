@@ -35,6 +35,19 @@ class StoreConfig(object):
     def info(self, store):
         return StoreConfig.CONFIG[store]
 
+    #TODO: The remaining methods here can be dynamically generated
     @classmethod
     def search_url(self, store):
         return self.info(store)['search_url']
+
+    @classmethod
+    def item_css_path(self, store):
+        return self.info(store)['item_css_path']
+
+    @classmethod
+    def title_css_path(self, store):
+        return self.info(store)['title_css_path']
+
+    @classmethod
+    def price_css_path(self, store):
+        return self.info(store)['price_css_path']
